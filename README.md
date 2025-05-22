@@ -1,1 +1,36 @@
-# Projet_CNN
+# Reconnaissance des langues sous-annotées avec réseaux de neurones
+
+## Introduction
+Ce projet explore la classification automatique de langues peu annotées (**mongol, tatar, estonien et chinois**) à l’aide des **spectrogrammes audio** et des **réseaux de neurones convolutifs (CNN)**.
+
+## Méthodologie
+
+### 1. Prétraitement des données
+- **Téléchargement** des corpus depuis *Common Voice*.
+- **Filtrage** des fichiers audios pour supprimer les silences (*Praat*).
+- **Segmentation** en tranches de **2 secondes**.
+- **Suppression** des fichiers trop courts (< 0.8s).
+- **Transformation** des fichiers audio en images spectrogrammes (*.png*).
+
+### 2. Architecture du modèle
+- Modèle CNN développé avec **Keras/TensorFlow** :
+  - **Deux couches de convolution** (`Conv2D`).
+  - **Couches de pooling** (`MaxPooling2D`) pour la réduction de dimension.
+  - **Couches entièrement connectées** (`Dense`) pour la classification finale.
+
+### 3. Entraînement et optimisation
+- **Hyperparamètres** :
+  - `batch_size = 50`
+  - `epochs = 100`
+  - `learning_rate = 0.01`
+- **Plateforme** : Google Colaboratory.
+- **Optimisation** : SGD avec Nesterov momentum.
+
+## Résultats
+- **Précision maximale atteinte** : **79,3 %**.
+- **Défis identifiés** :
+  - Similarité linguistique entre le **mongol et le tatar** (impact sur la classification).
+  - **Impact de la taille du corpus** sur les performances du modèle.
+
+## Conclusion
+Ce projet propose une approche **automatique et scalable** pour la reconnaissance des langues sous-annotées. Des améliorations peuvent être envisagées via l’**augmentation des données** ou des **modèles plus complexes** (ex. : Transformers).
