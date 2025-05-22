@@ -1,7 +1,7 @@
 # Reconnaissance des langues sous-annotées avec réseaux de neurones
 
 ## Introduction
-Ce projet explore la classification automatique de langues peu annotées (**mongol, tatar, estonien et chinois**) à l’aide des **spectrogrammes audio** et des **réseaux de neurones convolutifs (CNN)**.
+Ce projet vise à appliquer les **réseaux de neurones** à la reconnaissance automatique des langues sous-annotées (**mongol, tatar, estonien et chinois**) en utilisant des **spectrogrammes audio** comme entrée.
 
 ## Méthodologie
 
@@ -29,8 +29,12 @@ Ce projet explore la classification automatique de langues peu annotées (**mong
 ## Résultats
 - **Précision maximale atteinte** : **79,3 %**.
 - **Défis identifiés** :
-  - Similarité linguistique entre le **mongol et le tatar** (impact sur la classification).
-  - **Impact de la taille du corpus** sur les performances du modèle.
+  - Similarité linguistique entre le **mongol et le tatar**, rendant la classification plus difficile.
+  - **Impact de la taille du corpus** : un corpus plus petit (344 fichiers train, 40 fichiers test) a donné une précision plus élevée (**85,5 %**), tandis qu’un corpus plus grand a réduit la performance.
+  - **Prétraitement** : suppression des silences et segmentation en 2 secondes, mais sans distinction entre voyelles et consonnes, ce qui pourrait influencer les résultats.
 
 ## Conclusion
-Ce projet propose une approche **automatique et scalable** pour la reconnaissance des langues sous-annotées. Des améliorations peuvent être envisagées via l’**augmentation des données** ou des **modèles plus complexes** (ex. : Transformers).
+Ce projet propose une approche **automatique et scalable** pour la reconnaissance des langues sous-annotées. Des améliorations peuvent être envisagées via :
+- **L’augmentation des données** pour améliorer la robustesse du modèle.
+- **L’exploration de nouvelles architectures** comme les Transformers ou l’apprentissage auto-supervisé.
+- **Une meilleure prise en compte des caractéristiques phonétiques** (voyelles/consonnes) pour affiner la classification.
